@@ -64,10 +64,8 @@ public class ImageName {
             throw new NullPointerException("Image name must not be null");
         }
 
-        // set digest to null as default
-        digest = null;
         // check if digest is part of fullName, if so -> extract it
-        if(fullName.contains("@sha256")) { // Of it contains digest
+        if (fullName.contains("@sha256")) {
             String[] digestParts = fullName.split("@");
             digest = digestParts[1];
             fullName = digestParts[0];
@@ -173,7 +171,7 @@ public class ImageName {
     }
 
     /**
-     * Get the full name of this image like {@link #getFullName(String)} does, but allow
+     * Get the full name of this image like {@link #getFullName()} does, but allow
      * an optional registry. This registry is used when this image does not already
      * contain a registry. If no tag was provided in the initial name, <code>latest</code> is used.
      *
